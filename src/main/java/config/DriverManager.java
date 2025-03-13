@@ -12,7 +12,6 @@ public class DriverManager {
     public static AndroidDriver getDriver() {
         if (driver == null) {
             try {
-                // Используем UiAutomator2Options вместо DesiredCapabilities
                 UiAutomator2Options options = new UiAutomator2Options();
                 options.setPlatformName("Android");
                 options.setDeviceName("Pixel_2_API_27");
@@ -21,7 +20,6 @@ public class DriverManager {
                 options.setAppPackage("org.wikipedia");
                 options.setAppActivity("org.wikipedia.main.MainActivity");
 
-                // Инициализируем драйвер
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
